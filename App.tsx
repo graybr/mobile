@@ -1,14 +1,29 @@
 import React from 'react';
+import { AppLoading} from 'expo';
 import { StatusBar, View } from 'react-native';
 
-import Home from './src/pages/home/index';
+import {Roboto_400Regular, Roboto_500Medium} from '@expo-google-fonts/roboto';
+import {Ubuntu_700Bold, useFonts} from '@expo-google-fonts/ubuntu';
+
+
+import Routes from './src/routes';
 
 
 export default function App() {
+  const [fontslLoaded] = useFonts({
+    Roboto_400Regular,
+    Roboto_500Medium,
+    Ubuntu_700Bold
+  })
+
+  if(!fontslLoaded) {
+    return <AppLoading/>
+  }
+
   return (
     <>
       <StatusBar barStyle= 'dark-content' backgroundColor='transparent' translucent />
-      <Home />
+      <Routes />
     </>
   );
 }
