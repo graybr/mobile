@@ -1,7 +1,7 @@
 import React from 'react';
 import Constants from 'expo-constants';
 import {Feather as Icon} from '@expo/vector-icons';
-import { Text, StyleSheet, View, TouchableOpacity} from 'react-native';
+import { Text, StyleSheet, View, TouchableOpacity, ScrollView} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import MapView from 'react-native-maps';
 import { SvgUri } from 'react-native-svg';
@@ -24,13 +24,50 @@ const Points = () => {
         <Text style={styles.description} >Encontre no mapa um ponto de coleta.</Text>
 
         <View style={styles.mapContainer} >
-          <MapView style={styles.map} />
+          <MapView
+            style={styles.map}
+            initialRegion={{
+              latitude: -,
+              longitude: ,
+              latitudeDelta: 0.014,
+              longitudeDelta: 0.014,
+            }}
+          />
         </View>
       </View>
       <View style={styles.itemsContainer} >
-        <TouchableOpacity style={styles.item} >
-          <SvgUri width={42} height={42} uri="" />
-        </TouchableOpacity>
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={{
+            paddingHorizontal: 20
+          }}
+        >
+          <TouchableOpacity style={styles.item} >
+            <SvgUri width={42} height={42} uri="http://192.168.15.180:3333/uploads/lampadas.svg" />
+            <Text style={styles.itemTitle} > Lâmpadas </Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.item} >
+            <SvgUri width={42} height={42} uri="http://192.168.15.180:3333/uploads/lampadas.svg" />
+            <Text style={styles.itemTitle} > Lâmpadas </Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.item} >
+            <SvgUri width={42} height={42} uri="http://192.168.15.180:3333/uploads/lampadas.svg" />
+            <Text style={styles.itemTitle} > Lâmpadas </Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.item} >
+            <SvgUri width={42} height={42} uri="http://192.168.15.180:3333/uploads/lampadas.svg" />
+            <Text style={styles.itemTitle} > Lâmpadas </Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.item} >
+            <SvgUri width={42} height={42} uri="http://192.168.15.180:3333/uploads/lampadas.svg" />
+            <Text style={styles.itemTitle} > Lâmpadas </Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.item} >
+            <SvgUri width={42} height={42} uri="http://192.168.15.180:3333/uploads/lampadas.svg" />
+            <Text style={styles.itemTitle} > Lâmpadas </Text>
+          </TouchableOpacity>
+        </ScrollView>
       </View>
     </>
   )
